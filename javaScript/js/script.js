@@ -90,6 +90,7 @@ const isChecked = true,
 
     console.log(isChecked ||  !isClose);
     */
+   /*
    let numberOfFilms = prompt('Сколько фильмов вы смотрели?','0');
 
    const personalMovieDB = {
@@ -110,7 +111,7 @@ let numberFilm = prompt('На сколько вы его оцениваете?',
 personalMovieDB.movies.whatFilm = numberFilm;
 
 */
-
+/*
 const a = prompt('Один из последних просмотренных фильмов?', ''),
       b = prompt('На сколько оцените его?', ''),
       c = prompt('Один из последних просмотренных фильмов?', ''),
@@ -124,3 +125,55 @@ console.log(personalMovieDB);
 //console.log(personalMovieDB.movies);
 //console.log(whatFilm);
 
+*/ /*
+if (4 == 9){
+    console.log('ok!')
+}else {
+    console.log('pidar');
+}
+
+const num = 50;
+if (num < 49){
+    console.log ('Error');
+} else if (num > 100){
+    console.log('Много');
+}else {
+    console.log('ТО что надо');
+}
+*/
+/*
+const num = 50;
+(num === 50) ? console.log('ТО что надо') : console.log('Error');
+*/
+/*
+const num = 100;
+switch (num) {
+case 49:console.log('49');
+break;
+case 50:console.log('50');
+break;
+default:console.log('Бляяя');
+break;
+}
+*/
+let num = 50;
+/*
+while (num <= 55) {
+    console.log(num);
+    num++;
+}
+*/
+/*
+do {
+    console.log(num);
+    num++;
+}
+while (num <55);
+*/
+for (let i = 1;  i < 10; i++) {
+    
+    if (i === 6){
+        break;
+    }
+    console.log(i);
+}
