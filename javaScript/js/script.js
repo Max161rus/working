@@ -156,7 +156,7 @@ default:console.log('Бляяя');
 break;
 }
 */
-let num = 50;
+//let num = 50;
 /*
 while (num <= 55) {
     console.log(num);
@@ -170,10 +170,106 @@ do {
 }
 while (num <55);
 */
+/*
 for (let i = 1;  i < 10; i++) {
     
     if (i === 6){
-        break;
+        //break;
+        continue;
     }
     console.log(i);
 }
+*/
+/* мое решение
+let numberOfFilms;
+while (1){
+numberOfFilms = +prompt('Сколько фильмов вы смотрели?',''); 
+if (numberOfFilms === null){
+numberOfFilms = 0;
+}
+if (numberOfFilms > 0){
+break;
+}
+}
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: true   
+};
+
+if (personalMovieDB.count < 10){
+alert("Просмотрено довольно мало фильмов");
+}else if (personalMovieDB.count < 30){
+alert("Вы классический зритель");
+}else {
+alert("Вы киноман");
+}   
+
+let a, b;
+
+while (1){
+a = prompt('Один из последних просмотренных фильмов?', '');
+if (a === null){
+a = "";
+}
+if ((a.length > 0)&&(a.length < 50)){ 
+b = +prompt('На сколько оцените его?', '');
+if (b === null){
+b = 0;
+}
+if (b > 0){
+personalMovieDB.movies[a] = b;
+break;
+}
+}
+}
+console.log( personalMovieDB.movies);
+
+*/
+/*
+const a = prompt('Один из последних просмотренных фильмов?', ''),
+   b = prompt('На сколько оцените его?', ''),
+   c = prompt('Один из последних просмотренных фильмов?', ''),
+   d = prompt('На сколько оцените его?', '');
+*/
+/*personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
+
+
+console.log(personalMovieDB);
+*/
+
+let numberOfFilms = prompt('Сколько фильмов вы смотрели?','');
+
+   const personalMovieDB = {
+       count: numberOfFilms,
+       movies: {},
+       actors: {},
+       genres: [],
+       privat: true   
+   };
+
+console.log(personalMovieDB.count);
+
+
+
+
+
+
+for (let i = 0; i < 2; i++){
+    const a = prompt('Один из последних просмотренных фильмов?', ''),
+          b = prompt('На сколько оцените его?', '');
+if (a != null && b != null && a != "" && b != "" && a.length < 50){
+    personalMovieDB.movies[a] = b;
+    console.log('date');
+}else{
+    console.log("error")
+    i--;
+}
+          
+}
+
+console.log(personalMovieDB);
