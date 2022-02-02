@@ -241,7 +241,7 @@ personalMovieDB.movies[c] = d;
 
 console.log(personalMovieDB);
 */
-
+/*
 let numberOfFilms = prompt('Сколько фильмов вы смотрели?','');
 
    const personalMovieDB = {
@@ -273,3 +273,34 @@ if (a != null && b != null && a != "" && b != "" && a.length < 50){
 }
 
 console.log(personalMovieDB);
+*/
+//функции
+let num = 20;
+
+function showFirstMassege(text){ //function declaration. может быть выполнена до ее обЪявления
+    console.log(text);
+     let num = 10;
+     console.log(num);
+}
+
+showFirstMassege("Hello world!");
+console.log(num);
+
+function calk (a, b){
+    return (a+b);
+
+}
+console.log(calk(4,3));
+
+function ret(){
+    let num = 50;
+    return num;
+}
+const anothetNum = ret();
+
+console.log(anothetNum);
+
+const logger = function(){  //function expression. выполняется только после объявления
+console.log("Hello")
+};
+logger();
