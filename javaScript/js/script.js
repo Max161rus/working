@@ -275,6 +275,7 @@ if (a != null && b != null && a != "" && b != "" && a.length < 50){
 console.log(personalMovieDB);
 */
 //функции
+/*
 let num = 20;
 
 function showFirstMassege(text){ //function declaration. может быть выполнена до ее обЪявления
@@ -304,3 +305,95 @@ const logger = function(){  //function expression. выполняется тол
 console.log("Hello")
 };
 logger();
+
+const calkul = (a, b) => a + b; // стрелочные функции
+// методы и свойства
+const str = "test";
+
+console.log(str.length);
+console.log(str[2]);
+
+const arr = [1,2,3];
+
+console.log(arr.length);
+console.log(str.toUpperCase());
+console.log(str.toLocaleLowerCase());
+
+const fruit = "123Some fruit";
+
+console.log(fruit.indexOf("fruit"));
+
+const logg = "Hello world";
+
+console.log(logg.slice(6,11));
+
+console.log(logg.substring(6,11));
+
+console.log(logg.substr(6,5));
+
+const numm = 12.2;
+
+console.log(Math.round(numm));
+
+const testy = "12.2px";
+console.log(parseInt(testy));
+console.log(parseFloat(testy));
+*/
+/*
+let numberOfFilms = prompt('Сколько фильмов вы смотрели?','0');
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false   
+};
+
+function showMyDB (){
+    if (personalMovieDB.privat == false) {
+        console.log(personalMovieDB);
+    }else {
+        console.log("Херня");
+    }
+}
+showMyDB();
+
+const writeYourGenres = function  () {
+    for (let cnt = 0; cnt < 3; cnt++){
+    personalMovieDB.genres[cnt] = prompt(`ваш любимый жанр под номером ${cnt + 1}`);
+    }
+};
+writeYourGenres();
+console.log(personalMovieDB);
+*/
+let numberOfFilms;
+
+function start() {
+    numberOfFilms = +prompt('Сколько фильмов вы смотрели?',''); 
+    while (numberOfFilms == "" || numberOfFilms == null ||isNaN(numberOfFilms)){
+        numberOfFilms = +prompt('Сколько фильмов вы смотрели?',''); 
+    } 
+}
+start();
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: true   
+};
+
+console.log(personalMovieDB.count);
+
+const a = prompt('Один из последних просмотренных фильмов?', ''),
+   b = prompt('На сколько оцените его?', ''),
+   c = prompt('Один из последних просмотренных фильмов?', ''),
+   d = prompt('На сколько оцените его?', '');
+
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
+
+
+console.log(personalMovieDB);
