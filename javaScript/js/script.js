@@ -367,6 +367,7 @@ const writeYourGenres = function  () {
 writeYourGenres();
 console.log(personalMovieDB);
 */
+/*
 let numberOfFilms;
 
 function start() {
@@ -395,5 +396,35 @@ const a = prompt('Один из последних просмотренных ф
 personalMovieDB.movies[a] = b;
 personalMovieDB.movies[c] = d;
 
+
+console.log(personalMovieDB);
+*/
+let numberOfFilms;
+
+
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false   
+};
+
+function start(argum1) {
+    argum1.count = +prompt('Сколько фильмов вы смотрели?',''); 
+    while (argum1.count == "" || argum1.count == null ||isNaN(argum1.count)){
+        argum1 = +prompt('Сколько фильмов вы смотрели?',''); 
+    } 
+}
+
+const arrow = argum => {
+    for (let cnt = 0; cnt < 3; cnt++){
+        argum[cnt] = prompt(`ваш любимый жанр под номером ${cnt + 1}`);
+        }
+};
+
+start(personalMovieDB);
+arrow(personalMovieDB.genres);
 
 console.log(personalMovieDB);
