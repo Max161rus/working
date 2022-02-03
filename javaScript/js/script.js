@@ -399,6 +399,8 @@ personalMovieDB.movies[c] = d;
 
 console.log(personalMovieDB);
 */
+
+/*
 let numberOfFilms;
 
 
@@ -428,3 +430,118 @@ start(personalMovieDB);
 arrow(personalMovieDB.genres);
 
 console.log(personalMovieDB);
+*/
+// функции обратного вызова
+/*
+function first() {
+    // do somthing
+    setTimeout(function(){
+        console.log(1);
+    }, 500);
+    }
+function second (){
+    console.log(2);
+}
+
+first();
+second(); */
+/*
+function learnJS(lang, callback){
+    console.log(`я учу: ${lang}`);
+    callback();
+}
+
+
+function done() {
+    console.log("я прошел этот урок"); 
+}
+learnJS('javaScript', function(){
+    console.log("я прошел этот урок");
+});
+
+
+learnJS('javaScript', done);
+*/
+/*
+let image = function first() {
+    // do somthing
+    setTimeout(function(){
+        console.log(1);
+       return 2;
+    }, 500);
+    }
+
+
+function second (image){
+    console.log(image);
+}
+
+image();
+second(image());*/
+/*
+function runFirstFunch(oneFunction, callbackFunction){
+    oneFunction();
+    callbackFunction();
+}
+
+runFirstFunch(first, second);
+*/
+/////object
+
+const options ={
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'black',
+        bg: 'red'
+    },
+    makeTest: function() {
+        console.log("Test");
+    }
+};
+
+options.makeTest();// создали собственный метод
+
+const {border, bg} = options.colors; //деструктуризация объекта
+
+console.log(border, bg);
+
+
+//console.log(options.colors.border);
+
+//console.log(options["colors"]["border"]); //достучаться к значению свойства
+
+//delete options.name;
+
+//console.log(options);
+/*
+let counter = 0;
+
+for (let key in options){ // способ перебора объекта for in
+
+if (typeof(options[key]) === "object"){
+
+for (let i in options[key]){
+
+console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+
+counter++;
+
+}
+
+} else {
+    
+    console.log(`Свойство ${key} имеет значение ${options[key]}`);
+
+    counter++;
+}
+}
+
+console.log(counter);
+
+*/
+
+//console.log(Object.keys(options)); // получение свойств объекта в массив
+
+//console.log(Object.keys(options).length);// определение количества ключей
