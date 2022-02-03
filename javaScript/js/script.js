@@ -354,7 +354,7 @@ function showMyDB (){
     if (personalMovieDB.privat == false) {
         console.log(personalMovieDB);
     }else {
-        console.log("Херня");
+        console.log("!!!!!!!");
     }
 }
 showMyDB();
