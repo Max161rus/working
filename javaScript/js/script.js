@@ -488,24 +488,24 @@ runFirstFunch(first, second);
 */
 /////object
 
-const options ={
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    },
-    makeTest: function() {
-        console.log("Test");
-    }
-};
+// const options ={
+//     name: 'test',
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     },
+//     makeTest: function() {
+//         console.log("Test");
+//     }
+// };
 
-options.makeTest();// создали собственный метод
+// options.makeTest();// создали собственный метод
 
-const {border, bg} = options.colors; //деструктуризация объекта
+// const {border, bg} = options.colors; //деструктуризация объекта
 
-console.log(border, bg);
+// console.log(border, bg);
 
 
 //console.log(options.colors.border);
@@ -545,3 +545,171 @@ console.log(counter);
 //console.log(Object.keys(options)); // получение свойств объекта в массив
 
 //console.log(Object.keys(options).length);// определение количества ключей
+//массивы и псевдомассивы
+
+// const arr = [13, 12, 33, 64, 78];
+
+// arr.sort(compareNum);
+
+// console.log(arr);
+
+// function compareNum (a, b){
+//     return a - b;
+// }
+
+// arr.pop(); // удаляет последний элемент
+
+// console.log(arr);
+
+// arr.push(10); // добавляет элемент в конец массива
+
+// console.log(arr);
+
+// for (let i = 0; i < arr.length; i++){
+//     console.log(arr[i]);
+// }
+
+// for (let value of arr){ // цикл перебирающий только массивы, строки и псевдомассивы
+//     console.log(value); //с объектами не работает
+// }
+
+// arr[99] = 1;
+
+// console.log(arr.length);
+
+// let one = arr.map((i, key) => `элемент ${i} с инедксом ${key}`); // переберает массив, принимает элемент массива и его индекс
+
+// console.log(one);
+
+// arr.forEach(function(item, i, arr){// цикл перебора массива
+//     console.log(`${i}: ${item} внутри масиива ${arr}`);//принимает в себя колбэк функцию
+// });//функция принимает три аргумета: элемент массива, индекс эл, массив на который ссылаемся
+
+// const str = prompt('','');
+// const products = str.split(", "); //метод записывает строку разделенную в 
+// console.log(products); // знаками в скобках в массив
+// products.sort(); // сортирует элементы массива в алфавитном порядке, либо же цифры в порядке возрастания
+// console.log(products.join("; ")); //делает из массива строку разделенную знаками в скобках
+
+// let a = 5,
+//     b = a;
+
+//     b = b + 5;
+
+//     console.log(b, a);
+
+    // const obj = {
+    //     a: 5,
+    //     b: 1
+    // };
+
+    // const copy = obj; // передан не объект а ссылка на него
+
+    // copy.a = 10;
+    
+    // console.log(copy);
+
+    // console.log(obj);
+
+    // function copy (mainObj){
+    //     let objCopy={};
+    //     let key;
+    //     for(key in mainObj){
+    //         objCopy[key] = mainObj[key];
+    //     }
+    //     return objCopy;
+    // }
+
+    // const numbers = {
+    //     a:2,
+    //     b:5,
+    //     c:{
+    //         x:7,
+    //         y:4
+    //     }
+        
+    // };
+
+    // const newNumbers = copy(numbers);
+
+    // newNumbers.a = 10;
+    // newNumbers.c.x = 10; // поверхностная копия объектов
+
+    // console.log(newNumbers);
+
+    // console.log(numbers);
+
+//     const add = {
+//         d:17,
+//         e:20
+//     };
+
+//    // console.log(Object.assign(numbers, add)); // метод добавляет второй объект в первый
+
+//     const newObject = (Object.assign({}, add));//копирует второй объект в пустой новый
+
+//     console.log(newObject);
+    
+// newObject.d = 25;
+
+// console.log(newObject);
+
+// console.log(add);
+
+// const oldArr = ['a', 'b', 'c'];
+
+// const newArr = oldArr.slice(); // метод копирования массивов
+
+// newArr[1] = 'fucking';
+
+// console.log(newArr);
+
+// console.log(oldArr);
+
+//оператор раcпростанения (spread) 
+
+// const video = ['youtube', 'vimeo', 'rutube'],
+//       blogs = ['wordpress', 'livejournal', 'blogger'],
+//       internet = [...video, ...blogs, 'vk', 'facebook'];
+// console.log(internet);
+// internet[0] = 'her';
+// console.log(internet);
+// console.log(video);
+
+// function log (a, b, c){
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// const num = [2, 3, 5];
+
+// log(...num);
+// в ES8 стандарте SPREAD оператор (...) работает и для объектов
+
+// const array = ['a', 'b'];
+
+// const newArray = [...array]; // создание копии объекта с помощью SPREAD оператора
+
+// console.log(newArray);
+
+// const q = {
+//     a: 1,
+//     b: 2,
+//     c: 3
+// };
+
+// const qNew = {...q}; // копируем объект
+// console.log(qNew);
+// qNew.a = 10;
+// console.log(q);
+// console.log(qNew);
+// ООП объектно-ориентированное программирование
+let str = "some";
+
+let strObj = new String(str);
+
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+
+console.dir([1,2,3]);
+
