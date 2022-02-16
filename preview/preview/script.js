@@ -1,7 +1,7 @@
 'use strict';
 
-const btn = document.querySelectorAll('button'),
-            overlay = document.querySelector('.overlay');
+// const btn = document.querySelectorAll('button'),
+//             overlay = document.querySelector('.overlay');
 
            
 
@@ -39,15 +39,15 @@ const btn = document.querySelectorAll('button'),
 //       event.target.style.backgroundColor = 'yellow';
 //     });// выполняется при наводе мыши
 // let i = 0;
-const deleteElement = (event) => {
-   // event.target.remove();
-   console.log(event.currentTarget);
-   console.log(event.type);
-//    i++;
-//    if(i == 1){
-//     btn.removeEventListener("mouseenter", deleteElement); //удаляем обработчик событий
-//    }
-};
+// const deleteElement = (event) => {
+//    // event.target.remove();
+//    console.log(event.currentTarget);
+//    console.log(event.type);
+// //    i++;
+// //    if(i == 1){
+// //     btn.removeEventListener("mouseenter", deleteElement); //удаляем обработчик событий
+// //    }
+// };
 ///всплытие событий
 // btn.addEventListener("click", deleteElement);// выполняется при наводе мыши
 
@@ -58,13 +58,38 @@ const deleteElement = (event) => {
 
 //отмена страндартного поведения в браузере
 
-btn.forEach(btn => {
-    btn.addEventListener("click",deleteElement, {once: true}); //третий аргумент - объект который оменяет повторную оюработку событий
-});
+// btn.forEach(btn => {
+//     btn.addEventListener("click",deleteElement, {once: true}); //третий аргумент - объект который оменяет повторную оюработку событий
+// });
 
-const link = document.querySelector('a');
+// const link = document.querySelector('a');
 
-link.addEventListener('click', (event) => {
-event.preventDefault(); // Отменили событие перехода по ссылке
-console.log(event.target);
+// link.addEventListener('click', (event) => {
+// event.preventDefault(); // Отменили событие перехода по ссылке
+// console.log(event.target);
+// });
+
+const btn = document.querySelectorAll('button');
+
+console.log(btn);
+
+//btn.onclick = () => alert('Hello');
+
+// btn.forEach(item => {
+// item.onclick = () => alert('Hello');
+// });
+
+// btn.forEach(item => {
+// item.addEventListener('click',(event) =>{
+//     console.log(event.target);
+// })
+// };
+
+const myFunch = event => {
+    event.target.style.backgroundColor = 'red';
+    event.preventDefault();
+};
+
+btn.forEach(item =>{
+    item.addEventListener('click',myFunch);
 });
