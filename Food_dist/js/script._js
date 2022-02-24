@@ -86,7 +86,7 @@ tabsParent.addEventListener('click', (event) => {
 });
 ////////////// Taймер
 
-/* const deadLine = '2022-02-26';
+const deadLine = '2022-02-24';
 
 function getTimeRemaining(endtime){
     const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -135,77 +135,5 @@ function setClock(selector, endtime) {
             }
 }
 
-setClock('.timer', deadLine); */
-
-const dateEvent = prompt("Введите дату окончания акции в формате '0000-00-00'");//"2022-02-25"; //дата до которой надо сделать таймер
-console.log(new Date());
-
-//функция вычисления времени
-function calculationTime (inTime) {
-	
-	const time = Date.parse(inTime) - (Date.parse(new Date()) + (3 * 1000 * 60 * 60)),
-		  timeDays = Math.floor(time / (1000 * 60 * 60 * 24)),
-		  timeHours = Math.floor((time / (1000 * 60 * 60)) % 24),
-		  timeMinutes = Math.floor((time / (1000 * 60)) % 60),
-		  timeSeconds = Math.floor((time / 1000) % 60);
-          
-		  
-	return {
-		'total': time,
-		'days': timeDays,
-		'hours': timeHours,
-		'minutes': timeMinutes,
-		'seconds': timeSeconds
-	};
-}  
-console.log(calculationTime(dateEvent));
-//функция установки времени в теги
-function setClock (selector , inTime) {
-	
-	const timer = document.querySelector(selector),
-	      days = timer.querySelector('#days'),
-		  hours = timer.querySelector('#hours'),
-		  minutes = timer.querySelector('#minutes'),
-		  seconds = timer.querySelector('#seconds');
-		  const idTimer = setInterval(intervalClock, 1000);
-          intervalClock ();
-
-function intervalClock () { 
-
-
-    const outFunction = calculationTime(inTime);
-    if(outFunction.total <= 0){
-          clearInterval(idTimer);
-          days.innerHTML = '00';
-		  hours.innerHTML = '00';
-		  minutes.innerHTML = '00';
-		  seconds.innerHTML = '00';
-    } else {
-		  days.innerHTML = setNull(outFunction.days);
-		  hours.innerHTML = setNull(outFunction.hours);
-		  minutes.innerHTML = setNull(outFunction.minutes);
-		  seconds.innerHTML = setNull(outFunction.seconds);
-    }
-}
-		  
-			
-}
-
-function setNull (inTime) {
-	
-	if(inTime < 10) {
-		inTime = "0" + inTime;
-	} else {
-		inTime = inTime;
-	}
-	return inTime;
-}
-
-setClock('.timer', dateEvent);
-
-
-
-
-
-
+setClock('.timer', deadLine);
 });
