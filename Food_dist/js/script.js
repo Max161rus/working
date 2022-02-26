@@ -204,8 +204,62 @@ function setNull (inTime) {
 setClock('.timer', dateEvent);
 
 
+/////модальное окно
 
+const modalTrigger = document.querySelectorAll("[data-modal]"), // получение элемента через data атрибут
+      modal = document.querySelector('.modal'),
+      modalCloseBtn = document.querySelector('[data-close]');
 
+function openModal (){
+        // modal.classList.add('show');
+        // modal.classList.remove('hide');
+        modal.classList.toggle('show');
+        document.body.style.overflow = 'hidden'; // чтоб страница не скролилась
+        clearInterval(modelTimerId);
+}
 
+function closeModel(){
+        // modal.classList.add('hide');
+        // modal.classList.remove('show');
+        modal.classList.toggle('show');
+        document.body.style.overflow = '';
+}
+
+modalTrigger.forEach((item) => {
+    item.addEventListener('click', openModal);
+});
+
+modalCloseBtn.addEventListener('click', closeModel);
+
+modal.addEventListener('click', (event)=>{
+    if (event.target == modal){
+        closeModel();
+    }
+});
+document.addEventListener('keydown', (e)=>{ //событие по нажатию клавишь клавиатуры
+if(e.code === "Escape" && modal.classList.contains('show')){
+    closeModel();
+}
+});
+
+const modelTimerId = setTimeout(openModal, 50000);
+
+// window.addEventListener('scroll', ()=>{
+//  if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
+//     openModal();
+//  }
+// }, {once: true});  //настройки обрабочиков событий
+// //идут после функции, являются объектами
+//  в нашем случае не подходит
+//отслеживает что функция уже выполнилась один раз
+
+function showModalByScroll(){ //удаление обработчика событий
+        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
+        openModal();
+        window.removeEventListener('scroll', showModalByScroll); //удаляя событие
+        }//ссылаемся на то событие и ту функцию которая при нем выполнялась
+}
+
+window.addEventListener('scroll', showModalByScroll);  
 
 });
