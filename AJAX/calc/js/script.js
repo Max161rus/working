@@ -3,7 +3,7 @@
 const inputRub = document.querySelector('#rub'),
       inputUsd = document.querySelector('#usd');
 
-      inputRub.addEventListener('input', () => {
+      inputRub.addEventListener('input', () => { // можно также применить событие 'change', срабатывает тогда когда инпут уходит из фокуса
             const request = new XMLHttpRequest();//создали экземпляр объекта
             //методы объекта request
             //request.open(method, url, async, login, pass);//собирает настройки которые помогут в будущем сделать запрос
@@ -14,7 +14,7 @@ const inputRub = document.querySelector('#rub'),
 
             request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
-            request.send();
+            request.send(); //метод запроса
 
             //свойства объекта request
             //status
