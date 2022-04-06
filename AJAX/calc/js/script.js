@@ -3,6 +3,8 @@
 const inputRub = document.querySelector('#rub'),
       inputUsd = document.querySelector('#usd');
 
+      
+
       inputRub.addEventListener('input', () => { // можно также применить событие 'change', срабатывает тогда когда инпут уходит из фокуса
             const request = new XMLHttpRequest();//создали экземпляр объекта
             //методы объекта request
@@ -12,15 +14,15 @@ const inputRub = document.querySelector('#rub'),
 
             //http заголовки
 
-            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8'); // что из себя представляет инфа запроса
 
-            request.send(); //метод запроса
+            request.send(); //метод запроса, отправляем запрос
 
             //свойства объекта request
-            //status
-            //statusText
-            //response 
-            //readyState
+            //status //статус запроса, например 404
+            //statusText // текстовое описание ответа от сервера, например ОК
+            //response  // ответ от сервера, который задал бэкэнд разработчик
+            //readyState // текщее состояние нашего запроса (цифра либо слово)
 
             //события
             // request.addEventListener('readystatechange',() => {
@@ -30,7 +32,7 @@ const inputRub = document.querySelector('#rub'),
             //         console.log(data);
             //         inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
             //     }else {
-            //         inputUsd.value = "Что то пощло не так";
+            //         inputUsd.value = "Что то пошло не так";
             //     }
             // });
 
@@ -41,7 +43,7 @@ const inputRub = document.querySelector('#rub'),
                     console.log(data);
                     inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
                 }else {
-                    inputUsd.value = "Что то пощло не так";
+                    inputUsd.value = "Что то пошло не так";
                 }
             });
       });
