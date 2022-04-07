@@ -374,11 +374,9 @@ function postData(form){
             object[key] = value;
         });
 
-        const json = JSON.stringify(object);
+         const json = JSON.stringify(object);
 
-      //  const packageName = require('packageName');
-
-        request.send(json);
+         request.send(json);
 
         request.addEventListener('load', () => {
             if(request.status === 200){
