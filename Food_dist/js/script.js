@@ -299,6 +299,10 @@ window.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }, 4000);
     }
+
+    fetch('http://localhost:3000/menu')
+    .then(data => data.json())
+    .then(res => console.log(res));
 //fetch запросы
     // fetch('https://jsonplaceholder.typicode.com/todos/1') //из fetch запроса возвращается промис
     //         .then(response => response.json()) //превращаем формат джейсон в объект(возвращается промис)
