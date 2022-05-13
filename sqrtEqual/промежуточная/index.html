@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+	
+body{
+	background-color: Violet;
+}
+
+.one{
+	background-color: Lavender;
+}
+
+.two{
+	background-color: Lavender;
+}
+
+.three{
+	background-color: Lavender;
+}
+
+.four{
+	background-color: Lavender;
+	
+}
+.five{
+	background-color: Lavender;
+	width: 490px;
+	height: 19px;
+}
+.fuck{
+	background-color: lime;
+}
+
+.fuckTwo{
+	background-color: red;
+}
+</style>
+	
+</head>
+
+<body>
+
+	<canvas id=canvas width=400px height=500px style="background:Lavender"></canvas><br/>
+
+	<h1>Решение квадратных уравнений</h1>
+	
+	
+	<div>
+	
+		<p>Введите "a"</p>
+		
+		<input class = "one" type = 'number'></input>
+		
+		<p>Введите "b"</p>
+		
+		<input class = "two" type = 'number'></input>
+		
+		<p>Введите "c"</p>
+		
+		<input class = "three" type = 'number'></input>
+		
+		<p>Результат</p>
+		
+		<input class = "five"></input>
+			
+	</div> 
+	
+    <script>
+	
+function graph () {
+	
+const body = document.querySelector('body');
+
+const div = document.createElement('div');
+
+let a1 = document.querySelector('.one'),
+	  b1 = document.querySelector('.two'),
+	  c1 = document.querySelector('.three'),
+	  d1 = document.querySelector('.four'),
+	  e1 = document.querySelector('.five');
+
+let count = 0;
+
+let neg, pos;
+
+ const divNew = document.createElement('div');
+
+let x01, x02, x03, y01;
+
+const canvas = document.querySelector('canvas');
+ 
+ let ctx = canvas.getContext("2d");
+
+ const x0 = canvas.width / 2; //200 по горизонтале
+ 
+ const y0 = canvas.height / 2; //250 по вертикале
+ 
+ function setting () {
+
+ ctx.fillStyle = "red"; // цвет закраски
+ 
+for (let i = 0; i < canvas.height; i++){
+ 
+ ctx.fillRect(x0, i, 1 ,1)// на уровне 200 по горизонтале, от 0 до 500 по вертикале
+ 
+ };
+ 
+ for (let i = 0; i < canvas.width; i++){
+ 
+ ctx.fillRect(i, y0, 1 ,1)// на уровне 250 по вертикале, от 0 до 400 по гоизонтале
+ 
+ };
+ 
+}
+
+setting();
+
+
+function zeroing () {
+
+	ctx.fillStyle = "Lavender"; // цвет закраски // обнуление
+			
+	ctx.fillRect(0, 0, 500 ,500) // обнуление
+
+}
+	  
+const input = document.querySelectorAll('input');
+
+for(let i = 0; i < input.length; i++){
+
+	input[i].addEventListener('input', main);
+
+}
+	  
+function zeroingOut () {
+
+			zeroing();
+			
+			setting();	
+			
+			for (let i = -500; i <= 500; i++){
+
+				        ctx.fillStyle = "blue"; // цвет закраски
+		
+						y01 = +a1.value * (i * i) + (+b1.value) * (i) + (+c1.value);
+
+						
+
+						//console.log(Math.abs(i % 2), y01)
+
+						if (Math.abs(i % 2) === 0){
+				
+							pos = y01;
+							//console.log(Math.abs(i % 2), pos)
+						}else{
+							
+							neg = y01;
+							//console.log(Math.abs(i % 2), neg)
+						}
+
+						//console.log(pos);
+						//console.log(neg);
+						count++;
+						//console.log(count);
+
+
+						if(count === 2){
+							count = 0;
+							
+
+							
+							
+if(pos > neg){
+
+							for(pos; pos > neg; pos--){
+								ctx.fillRect(i + x0, pos + y0, 5 ,5);
+								
+							}
+						}else{
+							for(pos; pos < neg; pos++){
+								ctx.fillRect(i + x0, pos + y0, 5 ,5);
+								
+							}
+						}
+
+
+
+
+
+						}
+						
+						
+						
+						
+			
+			}
+		};		  
+	  
+	function main (e) {
+		
+		setTimeout(fuck, 500);
+				
+		e.target.classList.add('fuck')
+		
+			setTimeout(() => {
+				
+					e.target.classList.remove('fuck')
+					
+			},1500)
+	};  
+	  
+	  
+	function fuck (e) {
+		 	 
+		 
+		 let D = (+b1.value) * (+b1.value) - 4 * (+a1.value) * (+c1.value);
+		 
+			if(+a1.value === 0){
+			
+			const x3 = (-+c1.value/+b1.value);
+			
+			zeroingOut();
+
+			e1.value = `Корень равен ${x3}`
+			
+		}else{
+		 
+		if (D < 0) {
+			
+			e1.value = 'Корней нет'
+			
+			zeroing ();
+			
+			setting ();
+			
+		}else if (D === 0){
+			
+			const x1 = - +b1.value/2 * +a1.value
+			
+			zeroingOut();
+			
+			e1.value = `Корень равен ${x1}`
+			
+		}else{
+			
+			const x1 = (-+b1.value + Math.sqrt(D))/(2 * +a1.value);
+			
+			const x2 = (-+b1.value - Math.sqrt(D))/(2 * +a1.value);
+			
+			zeroingOut();
+			
+			e1.value = `Корни равны ${x1} и ${x2}`
+		}
+		};
+		
+		let plusMinus1 = "+",
+			plusMinus2 = "+";
+		 
+		 if(+b1.value < 0){
+
+			 plusMinus1 = "";
+
+		 if (+c1.value < 0){
+
+			 plusMinus2 = "";
+		 }
+
+		 if((+b1.value > 0) && (+c1.value > 0))
+
+			 plusMinus1 = plusMinus2 = "+";
+
+		 }
+
+		 if((+b1.value > 0) && (+c1.value < 0)){
+
+			 plusMinus2 = "";
+
+		 }
+		 
+		 let A = +a1.value,
+		     B = +b1.value,
+			 C = +c1.value,
+			 x2 = 'x^2',
+			 x = 'x';
+			 
+			 if (A === 0 && B == 0){
+				 A = '';
+				 x2 = '';
+				 plusMinus1 = '';
+				 B = '';
+				 x = '';
+				 plusMinus2 = '';
+			 }
+
+			 if((B === 0) && (C < 0)){
+				 B = '';
+				 x = '';
+				 plusMinus1 = '';
+				 plusMinus2 = '';
+			 }
+
+			 if((A === 0) && (C === 0)){
+				 A = '';
+				 x2 = '';
+				 C = '';
+				 plusMinus1 = '';
+				 plusMinus2 = '';
+			 }
+
+			 if (A === 1){
+				 A = '';
+			 }
+
+			 if (A === -1){
+				 A = '-';
+			 }
+
+			 if (B === 1){
+				 B = '';
+			 }
+
+			 if (B === -1){
+				 B = '';
+				 plusMinus1 = '-';
+			 }
+			 
+			 if(A === 0){
+				 A = '';
+				 x2 = '';
+				 plusMinus1 = '';
+			 }
+
+			 if(B === 0){
+				 B = '';
+				 x = '';
+				 plusMinus1 = '';
+			 }
+
+			if(C === 0){
+				 C = '';
+				 plusMinus2 = '';
+				
+			 }
+
+			 if(e1.value === 'Корней нет'){
+				 
+				 e1.classList.add('fuckTwo');
+				 
+				 e1.classList.remove('fuck');
+				  
+			 }else{
+				 
+				 e1.classList.add('fuck');
+				 
+				 e1.classList.remove('fuckTwo');
+				 
+			 }
+			 
+			 setTimeout(() => {
+				 
+				  e1.classList.remove('fuck');
+				  
+				   e1.classList.remove('fuckTwo');
+				   
+			 },1000)
+			 
+	    divNew.innerText = `${A}${x2} ${plusMinus1} ${B}${x} ${plusMinus2} ${C}= 0`;
+		
+		body.appendChild(divNew);
+		
+		
+	 };
+	 
+};
+
+graph();
+	
+	</script>
+	
+</body>
+</html>
