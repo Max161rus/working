@@ -1,4 +1,4 @@
-import tabs from './modules/tabs';
+import tabs from './modules/tabs'; //
 import cards from './modules/cards';
 import forms from './modules/forms';
 import modal from './modules/modal';
