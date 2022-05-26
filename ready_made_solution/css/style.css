@@ -1,0 +1,65 @@
+.divChilde {
+  position: absolute;
+  /*width: 100px;
+  height: 100px;
+  background-color: blue;*/
+}
+.divParent {
+  position: relative;
+ /* width: 400px;
+  height: 400px;
+  border: 3px solid red; */
+}
+/*button {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: yellow;
+  border: none;
+}*/
+
+.one{
+	background-color: red;
+	width: 100px;
+	height: 100px;
+}
+
+.two{
+	background-color: blue;
+	width: 80px;
+	height: 80px;
+}
+
+.three{
+	background-color: green;
+	width: 60px;
+	height: 60px;
+}
+
+.four{
+	background-color: white;
+	width: 153px;
+	height: 20px;
+}
+.five{
+	background-color: white;
+}
+.fuck{
+	background-color: lime;
+}
+.fuckTwo{
+	background-color: red;
+}
+h1{
+	background-color: yellow;
+	width: 40px;
+	height: 40px;
+}
+/*p{
+	color: white;
+}*/
+img{
+	height: 500px;
+	width: 250px;
+}
