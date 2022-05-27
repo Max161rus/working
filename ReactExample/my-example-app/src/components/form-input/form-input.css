@@ -1,0 +1,28 @@
+.formInput{
+    height: 280px;
+    width: 300px;
+    background-color: lime;
+    border: 2px solid red;
+
+}
+.imgForm{
+    height: 135px;
+    width: 230px;
+    background-color: white;
+    margin: 20px;
+    margin-left: 25px;
+}
+img{
+    height: 120px;
+    width: 200px;
+    margin: 5px;
+    border: 2px solid red;
+
+}
+
+p{
+    color:white;
+}
+h2{
+    color:white;
+}
