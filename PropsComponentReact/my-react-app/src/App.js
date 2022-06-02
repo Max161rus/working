@@ -1,4 +1,4 @@
-import {Component} from "react";
+import {Component, Fragment} from "react";
 
 import './App.css';
 
@@ -33,7 +33,7 @@ class WhoAmI extends Component{
 
     console.log(this)
     return(
-    <div>
+    <Fragment>
     <button onClick={this.nextYear}>{this.state.text}</button>
       <h1>My name is {name}, surname - {surname},
           age - {years},
@@ -43,7 +43,7 @@ class WhoAmI extends Component{
         <span>Введите должность</span>
         <input type="text" onChange={(e) => this.commitInputChanges(e, "some color")}/>
       </form>
-    </div>
+    </Fragment>
     );
     };
 }
