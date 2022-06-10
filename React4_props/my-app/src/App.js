@@ -1,14 +1,50 @@
-
+import {Component} from 'react';
 import './App.css';
 
-function WhoAmi ({name, surname, link}) {
- 
-  return(
-    <div>
-      <h1>My name is {name()}, surname - {surname}</h1>
-      <a href={link}>My profile</a>
-    </div>
-  )
+class WhoAmi extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      years: 27,
+      text: "+++",
+      position: ""
+    }
+   
+  }
+
+  nextYear = () =>  {
+    this.setState(state => ({
+      years: state.years + 1
+    }))
+  }
+
+  commitInputChanges = (e, color) => {
+    console.log(color)
+    this.setState({
+      position: e.target.value
+    })
+  }
+
+
+ render() {
+   const {name, surname, link} = this.props;
+   const {position, years} = this.state;
+      return(
+        <div>
+          <button onClick={this.nextYear}>{this.state.text}</button>
+          <h1>My name is {name}, 
+              surname - {surname}, 
+              age - {years}, 
+              position - {position}</h1>
+          <a href={link}>My profile</a>
+          <form>
+              <span>Введите должность</span>
+              <input type="text" onChange={(e) => this.commitInputChanges(e, "some color")}/>
+          </form>
+        </div>
+      )
+ }
+  
 }
 
 
@@ -16,8 +52,8 @@ function WhoAmi ({name, surname, link}) {
 function App() {
   return (
     <div className="App">
-        <WhoAmi name={() => {return "John"}} surname="Smith"  link="facebook.com"/>
-        <WhoAmi name={() => {return "Alex"}} surname="Shepard"  link="vk.com"/>
+        <WhoAmi name="John" surname="Smith"  link="facebook.com"/>
+        <WhoAmi name="Alex" surname="Shepard"  link="vk.com"/>
         
     </div>
   );
