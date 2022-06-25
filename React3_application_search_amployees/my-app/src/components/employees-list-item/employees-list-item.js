@@ -15,9 +15,13 @@ const EmployeesListItem = (props) => {
         if(rise){
             classNames += " like"
         }
+        const style = {fontSize: '40px', color: 'yellow', transition: "all", WebkitTransition: "all", msTransition: "all"};
         return (
             <li className={classNames}>
-                <span onClick={onToggleProp} className="list-group-item-label" data-toggle="rise">{name}</span>
+                <span onClick={onToggleProp} 
+                      className="list-group-item-label" 
+                      data-toggle="rise"
+                      style={style}>{name}</span>
                 <input type="text" className="list-group-item-input" defaultValue={salary + "$"}/>
                 <div className='d-flex justify-content-center align-items-center'>
                     <button onClick={onToggleProp}
