@@ -21,3 +21,9 @@ for (let node of document.body.childNodes){
      }
      console.log(node);
 }
+
+// const a = document.querySelector('a');
+
+// a.addEventListener("click", () => {
+//     a.style.textDecoration = "line-through";
+// });

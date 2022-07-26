@@ -1,5 +1,5 @@
-import {Component} from "react";
-
+import React, {Component} from "react";
+import BootstrapTest  from './BootstrapTest';
 import styled from "styled-components"
 
 import './App.css';
@@ -84,9 +84,58 @@ const Wrapper = styled.div`
   background-color: white;
 `;
 
+const DynamicGreating = (props) => {
+  console.log(props.children)
+  return(
+    <div className={'mb-3 p-3 border border-' + props.color}>
+        {
+            React.Children.map(props.children, child => {
+                return React.cloneElement(child, {className: 'shadow p-3 m-3 border rounded'})
+            })
+        }
+    </div>
+  )
+}
+
+const NewComponent = (props) => {
+  return(
+      <>
+        <div className="one">
+          {props.one}
+        </div>
+  
+        <div className="two">
+          {props.two}
+        </div>
+      </>
+  )
+}
+
 function App() {
   return (
     <Wrapper>
+
+      <NewComponent
+        one = {<h1>ONE</h1>}
+
+        two = {<h1>TWO</h1>}
+      />
+
+      <BootstrapTest
+        left={
+          <DynamicGreating color={'primary'}>
+            <h2>This weel was hard</h2>
+            <h2>Hello world</h2>
+          </DynamicGreating>
+        }
+        right={
+          <DynamicGreating color={'primary'}>
+            <h2>Right</h2>
+          </DynamicGreating>
+        }
+      
+      />
+
       <WhoAmI name='John' surname="Smith" link="facebook.com"/>
       <WhoAmI name="Alex" surname="Shepard" link="vk.com"/>
     </Wrapper>
