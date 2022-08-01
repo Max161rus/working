@@ -1,0 +1,61 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+
+  "globals": {
+    "require": true,
+    "project": true,
+    "process": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "globalReturn": false, // allow return statements in the global scope
+      "impliedStrict": true,
+      "jsx": true,
+      "experimentalObjectRestSpread": true // enable support for the experimental object rest/spread
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react" // (you must run `npm install eslint-plugin-react` first)
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": "off",
+    "react/display-name": "off",
+    "react/destructuring-assignment": "off",
+    "react/no-multi-comp": "off",
+
+    "import/default": 0,
+    "import/no-duplicates": 0,
+    "import/named": 0,
+    "import/namespace": 0,
+    "import/no-unresolved": 0,
+    "import/no-named-as-default": 0,
+    "import/no-dynamic-require": 0,
+    "import/prefer-default-export": "off",
+
+    "arrow-body-style": [2, "always"],
+    "consistent-return": 0,
+    "curly": 1,
+    "eol-last": [2, "always"],
+    "global-require": 0,
+    "no-param-reassign": 0,
+    "no-unused-vars": 0,
+    "object-curly-newline": 0,
+    "operator-linebreak": ["error", "after"],
+    "strict": 0,
+    "semi": [2, "always"],
+    "comma-dangle": [1, "never"]
+  }
+}

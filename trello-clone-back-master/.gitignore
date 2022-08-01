@@ -1,0 +1,5 @@
+/node_modules
+/public/avatars
+.idea/
+# .vscode/settings.json
+/config/localConfig.json

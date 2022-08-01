@@ -1,0 +1,20 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "trello",
+    "host": "localhost",
+    "port": "5432",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "production": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "trello",
+    "host": "localhost",
+    "port": "5432",
+    "dialect": "postgres",
+    "logging": false
+  }
+}
