@@ -87,6 +87,7 @@ toDoAdd.addEventListener('click', () => {
             //Покажем скрытые элементы в во кладках завершенные и удаленные
 
             toDoOption.addEventListener('click', (e) => {
+                console.log(e.pointerId)
                 if(e.pointerId !== 1){ //проверям что нажимаем на содержимое вкладки
                         if(e.target.value === 'active'){
                             //toDoText.setAttribute('disabled', 'inabled'); // Включаем инпут
