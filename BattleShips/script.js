@@ -11,12 +11,7 @@ let lastShot = [];
 
 const ower = document.querySelector('.ower');
 
-let countTest = 0;
-
-let countTest2 = 0;
-
-let abcis = 0;
-let ordinat = 0;
+let align = false;
 
 const gameOwerRed = (arr, matrix) => {
 	let col = 0;
@@ -120,6 +115,13 @@ const drawElementsOnHumanField = (matrix, arr) => { // рисуем корабл
 				arr[index].innerHTML = `<div class='dot'></div`;
 			}, 1000)
 		}
+		if (matrix[row][col] === 4) {
+			matrix[row][col] = 3
+			setTimeout(() => {
+				arr[index].innerHTML = `<div class='dot dotYellow'></div`;
+				console.log(matrix)
+			}, 1000)
+		}
 
 		if (col < 9) {
 			col++
@@ -168,25 +170,55 @@ const randomShot = matrix1 => {
 	}
 
 	if (matrix1[y][x] === 3) {
-		x = 0;
-		y = 0;
-		while (matrix1[y][x] !== 0 && matrix1[y][x] !== 1) {
-			if (x < 9) {
-				x++;
-			} else {
-				x = 0;
-				y++;
-			}
+		if (!align) {
+			x = 0;
+			y = 0;
+		} else {
+			x = 9;
+			y = 9;
 		}
 
+		console.log(align, [y, x])
+
+		while (matrix1[y][x] !== 0 && matrix1[y][x] !== 1) {
+			if (!align) {
+				if (x < 9) {
+					x++;
+				} else {
+					x = 0;
+					y++;
+				}
+			}
+			if (align) {
+				if (x > 0) {
+					x--;
+				} else {
+					x = 9;
+					y--;
+				}
+			}
+		}
 	}
 
 	if (matrix1[y][x] === 1) {
 		matrix1[y][x] = 2;
+		matrix1[y][x + 1] = 3;
+		matrix1[y][x - 1] = 3;
+		if (matrix1[y - 1] !== undefined) {
+			matrix1[y - 1][x - 1] = 3;
+			matrix1[y - 1][x] = 3;
+			matrix1[y - 1][x + 1] = 3;
+		}
+		if (matrix1[y + 1] !== undefined) {
+			matrix1[y + 1][x - 1] = 3;
+			matrix1[y + 1][x] = 3;
+			matrix1[y + 1][x + 1] = 3;
+		}
 		flagShot = true;
 	}
 	if (matrix1[y][x] === 0) {
-		matrix1[y][x] = 3;
+		matrix1[y][x] = 4;
+		align = !align // меняем направление рандома
 	}
 	if (flagShot) {
 		setTimeout(() => {
