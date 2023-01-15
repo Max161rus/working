@@ -1,4 +1,3 @@
-
 * {
 	box-sizing: border-box;
 }
@@ -14,20 +13,23 @@
 	width: 2000px;
 }
 
-.wrapper__human, .wrapper__computer {
+.wrapper__human,
+.wrapper__computer {
 	width: 500px;
 	height: 500px;
 	text-align: center;
 }
 
-.wrapper__human-field, .wrapper__computer-field {
+.wrapper__human-field,
+.wrapper__computer-field {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 	width: 100%;
 	height: 100%;
 }
 
-.wrapper__human-el, .wrapper__computer-el {
+.wrapper__human-el,
+.wrapper__computer-el {
 	width: 50px;
 	height: 50px;
 	border: 1px solid black;
@@ -74,7 +76,20 @@
 	background-color: yellow;
 }
 
-.ower {
+.over {
 	font-size: 30px;
 	color: red;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.btn {
+	height: 50px;
+	width: 150px;
+	background-color: lime;
+	color: white;
 }

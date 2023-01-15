@@ -1,7 +1,15 @@
 
+//const btn = document.querySelector('.btn');
+
+//const body = document.querySelector('body');
+
+const wrapper = document.querySelector('.wrapper');
+
 const humanField = document.querySelector('.wrapper__human-field');
 
 const computerField = document.querySelector('.wrapper__computer-field');
+
+const over = document.querySelector('.over');
 
 const matrixHumanField = [];
 
@@ -9,11 +17,9 @@ const matrixComputerField = [];
 
 let lastShot = [];
 
-const ower = document.querySelector('.ower');
-
 let align = false;
 
-const gameOwerRed = (arr, matrix) => {
+const gameOverRed = (arr, matrix) => {
 	let col = 0;
 	let row = 0;
 	arr.forEach(item => {
@@ -56,6 +62,19 @@ const randomPlacementShips = matrix => { // рандомное появлени�
 				count++;
 			}
 		}
+		if (matrix[y - 1] === undefined) {
+			if (matrix[y][x] !== 1 && matrix[y][x - 1] !== 1 && matrix[y][x + 1] !== 1 && matrix[y + 1][x] !== 1 && matrix[y + 1][x - 1] !== 1 && matrix[y + 1][x + 1] !== 1) {
+				matrix[y][x] = 1;
+				count++;
+			}
+		}
+		if (matrix[y + 1] === undefined) {
+			if (matrix[y][x] !== 1 && matrix[y][x - 1] !== 1 && matrix[y][x + 1] !== 1 && matrix[y - 1][x] !== 1 && matrix[y - 1][x - 1] !== 1 && matrix[y - 1][x + 1] !== 1) {
+				matrix[y][x] = 1;
+				count++;
+			}
+		}
+
 
 	}
 }
@@ -88,13 +107,13 @@ const matrixWrite = matrix => { // создаем матрицы полей
 	}
 }
 
-matrixWrite(matrixHumanField)
+matrixWrite(matrixHumanField);
 
-matrixWrite(matrixComputerField)
+matrixWrite(matrixComputerField);
 
-randomPlacementShips(matrixHumanField)
+randomPlacementShips(matrixHumanField);
 
-randomPlacementShips(matrixComputerField)
+randomPlacementShips(matrixComputerField);
 
 
 const drawElementsOnHumanField = (matrix, arr) => { // рисуем корабли на поле человека
@@ -116,11 +135,10 @@ const drawElementsOnHumanField = (matrix, arr) => { // рисуем корабл
 			}, 1000)
 		}
 		if (matrix[row][col] === 4) {
-			matrix[row][col] = 3
 			setTimeout(() => {
 				arr[index].innerHTML = `<div class='dot dotYellow'></div`;
-				console.log(matrix)
 			}, 1000)
+			matrix[row][col] = 3
 		}
 
 		if (col < 9) {
@@ -135,8 +153,7 @@ const drawElementsOnHumanField = (matrix, arr) => { // рисуем корабл
 
 drawElementsOnHumanField(matrixHumanField, arrHumanFieldElement);
 
-
-const gameOver = matrix => { // выволит сообщение о конце игры
+const gameOver = (matrix) => { // выволит сообщение о конце игры
 	let counter = 0;
 	matrix.forEach(item => {
 		item.forEach(item => {
@@ -146,8 +163,7 @@ const gameOver = matrix => { // выволит сообщение о конце 
 		});
 	});
 	if (counter === 15) {
-		console.log('game over')
-		ower.innerText = 'GAME OWER';
+		over.innerText = `GAME OVER`;
 		return true;
 	}
 }
@@ -169,7 +185,7 @@ const randomShot = matrix1 => {
 		y = Math.floor((Math.random() * 10))
 	}
 
-	if (matrix1[y][x] === 3) {
+	if (matrix1[y][x] === 3 || matrix1[y][x] === 2) {
 		if (!align) {
 			x = 0;
 			y = 0;
@@ -178,23 +194,21 @@ const randomShot = matrix1 => {
 			y = 9;
 		}
 
-		console.log(align, [y, x])
-
-		while (matrix1[y][x] !== 0 && matrix1[y][x] !== 1) {
+		while (matrix1[y][x] === 2 || matrix1[y][x] === 3) { //matrix1[y][x] !== 0 && matrix1[y][x] !== 1
 			if (!align) {
-				if (x < 9) {
-					x++;
-				} else {
-					x = 0;
+				if (y < 9) {
 					y++;
+				} else {
+					y = 0;
+					x++;
 				}
 			}
 			if (align) {
-				if (x > 0) {
-					x--;
-				} else {
-					x = 9;
+				if (y > 0) {
 					y--;
+				} else {
+					y = 9;
+					x--;
 				}
 			}
 		}
@@ -202,17 +216,29 @@ const randomShot = matrix1 => {
 
 	if (matrix1[y][x] === 1) {
 		matrix1[y][x] = 2;
-		matrix1[y][x + 1] = 3;
-		matrix1[y][x - 1] = 3;
+		if (matrix1[y][x + 1] !== undefined) {
+			matrix1[y][x + 1] = 3;
+		}
+		if (matrix1[y][x - 1] !== undefined) {
+			matrix1[y][x - 1] = 3;
+		}
 		if (matrix1[y - 1] !== undefined) {
-			matrix1[y - 1][x - 1] = 3;
+			if (matrix1[y - 1][x - 1] !== undefined) {
+				matrix1[y - 1][x - 1] = 3;
+			}
 			matrix1[y - 1][x] = 3;
-			matrix1[y - 1][x + 1] = 3;
+			if (matrix1[y - 1][x + 1] !== undefined) {
+				matrix1[y - 1][x + 1] = 3;
+			}
 		}
 		if (matrix1[y + 1] !== undefined) {
-			matrix1[y + 1][x - 1] = 3;
+			if (matrix1[y + 1][x - 1] !== undefined) {
+				matrix1[y + 1][x - 1] = 3;
+			}
 			matrix1[y + 1][x] = 3;
-			matrix1[y + 1][x + 1] = 3;
+			if (matrix1[y + 1][x + 1] !== undefined) {
+				matrix1[y + 1][x + 1] = 3;
+			}
 		}
 		flagShot = true;
 	}
@@ -222,13 +248,19 @@ const randomShot = matrix1 => {
 	}
 	if (flagShot) {
 		setTimeout(() => {
-			randomShot(matrix1)
+			if (!gameOver(matrix1)) {
+				randomShot(matrix1);
+			}
 			drawElementsOnHumanField(matrix1, arrHumanFieldElement);
+
+			if (gameOver(matrix1)) {
+				gameOverRed(arrHumanFieldElement, matrixHumanField);
+				gameOverRed(arrComputerFieldElement, matrixComputerField);
+				return
+			}
 		}, 1000)
 	}
 }
-
-let count3 = 0
 
 const drawDotInElement = (arrElement, matrix, matrix1) => { // отрисовывает точки и кресты на поле
 
@@ -263,26 +295,28 @@ const drawDotInElement = (arrElement, matrix, matrix1) => { // отрисовы�
 
 		item.addEventListener('click', e => {
 
-			if (e.target.childNodes.length === 0 && e.target.className !== 'dot') {
-				e.target.appendChild(shot);
+			if (!gameOver(matrix, 'Computer') && !gameOver(matrix1, 'Human')) {
+				if (e.target.childNodes.length === 0 && e.target.className !== 'dot') {
+					e.target.appendChild(shot);
 
-				if (matrix[x][y] === 1) {
-					matrix[x][y] = 2;
+					if (matrix[x][y] === 1) {
+						matrix[x][y] = 2;
+					}
+
+					if (matrix[x][y] === 0) {
+						randomShot(matrix1)
+						drawElementsOnHumanField(matrix1, arrHumanFieldElement);
+					}
+
+					flag1 = gameOver(matrix);
+					flag2 = gameOver(matrix1);
+
+					if (flag1 || flag2) {
+						gameOverRed(arrHumanFieldElement, matrixHumanField);
+						gameOverRed(arrComputerFieldElement, matrixComputerField);
+					}
+
 				}
-
-				if (matrix[x][y] === 0) {
-					randomShot(matrix1)
-					drawElementsOnHumanField(matrix1, arrHumanFieldElement);
-				}
-
-				flag1 = gameOver(matrix)
-				flag2 = gameOver(matrix1)
-
-				if (flag1 || flag2) {
-					gameOwerRed(arrHumanFieldElement, matrixHumanField)
-					gameOwerRed(arrComputerFieldElement, matrixComputerField)
-				}
-
 			}
 
 		})
