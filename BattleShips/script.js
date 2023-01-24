@@ -327,4 +327,3 @@ const drawDotInElement = (arrElement, matrix, matrix1) => { // отрисовы�
 drawDotInElement(arrComputerFieldElement, matrixComputerField, matrixHumanField);
 
 
-
